@@ -6,7 +6,10 @@
     "dev": "next dev -p 3030",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint && pnpm prettier",
+    "prepare": "husky install",
+    "prettier": "npx prettier src --check",
+    "prettier-fix": "npx prettier src --write"
   },
   "dependencies": {
     "@total-typescript/ts-reset": "^0.4.2",
@@ -14,10 +17,13 @@
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
+    "axios": "^1.4.0",
+    "clsx": "^1.2.1",
     "eslint": "8.44.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-next": "13.4.9",
+    "lucide-react": "^0.259.0",
     "next": "13.4.9",
     "postcss": "8.4.25",
     "react": "18.2.0",
