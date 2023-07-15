@@ -14,7 +14,7 @@ interface Query {
   isFeatured?: boolean
 }
 
-const getCategories = async (query: Query): Promise<Product[]> => {
+const getProducts = async (query: Query): Promise<Product[]> => {
   const url = qs.stringifyUrl({
     url: URL,
     query: {
@@ -30,4 +30,4 @@ const getCategories = async (query: Query): Promise<Product[]> => {
   return response.data
 }
 
-export default getCategories
+export default getProducts

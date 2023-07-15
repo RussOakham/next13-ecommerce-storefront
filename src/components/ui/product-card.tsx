@@ -2,6 +2,7 @@
 
 import { Expand, ShoppingCart } from 'lucide-react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 import { Product } from '../../../types'
 
@@ -17,8 +18,26 @@ const expandIcon = <Expand size={20} className="text-gray-600" />
 const shoppingCartIcon = <ShoppingCart size={20} className="text-gray-600" />
 
 const ProductCard = ({ product }: ProductCardProps) => {
+  const router = useRouter()
+
+  const handleClick = () => {
+    router.push(`/product/${product.id}`)
+  }
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Enter') {
+      handleClick()
+    }
+  }
+
   return (
-    <div className="group cursor-pointer space-y-4 rounded-xl border bg-white p-3">
+    <div
+      role="button"
+      tabIndex={0}
+      onClick={handleClick}
+      onKeyDown={(event) => handleKeyDown(event)}
+      className="group cursor-pointer space-y-4 rounded-xl border bg-white p-3"
+    >
       <div className="relative aspect-square rounded-xl bg-gray-100">
         <Image
           src={product?.images?.[0]?.url as string}
