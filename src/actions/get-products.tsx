@@ -8,26 +8,26 @@ import { Product } from '../../types'
 const URL = `${process.env.NEXT_PUBLIC_API_URL as string}/products`
 
 interface Query {
-  categoryId?: string
-  colorId?: string
-  sizeId?: string
-  isFeatured?: boolean
+	categoryId?: string
+	colorId?: string
+	sizeId?: string
+	isFeatured?: boolean
 }
 
 const getProducts = async (query: Query): Promise<Product[]> => {
-  const url = qs.stringifyUrl({
-    url: URL,
-    query: {
-      colorId: query.colorId,
-      sizeId: query.sizeId,
-      categoryId: query.categoryId,
-      isFeatured: query.isFeatured,
-    },
-  })
+	const url = qs.stringifyUrl({
+		url: URL,
+		query: {
+			colorId: query.colorId,
+			sizeId: query.sizeId,
+			categoryId: query.categoryId,
+			isFeatured: query.isFeatured,
+		},
+	})
 
-  const response: AxiosResponse<Product[]> = await axios.get(url)
+	const response: AxiosResponse<Product[]> = await axios.get(url)
 
-  return response.data
+	return response.data
 }
 
 export default getProducts
