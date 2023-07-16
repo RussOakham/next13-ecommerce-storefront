@@ -1,10 +1,11 @@
 'use client'
 
+import { useEffect } from 'react'
 import { Expand, ShoppingCart } from 'lucide-react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
-import { Product } from '../../../types'
+import { Product } from '@/types'
 
 import Currency from './currency'
 import IconButton from './icon-button'
@@ -19,6 +20,10 @@ const shoppingCartIcon = <ShoppingCart size={20} className="text-gray-600" />
 
 const ProductCard = ({ product }: ProductCardProps) => {
 	const router = useRouter()
+
+	useEffect(() => {
+		router.prefetch(`/product/${product.id}`)
+	}, [product.id, router])
 
 	const handleClick = () => {
 		router.push(`/product/${product.id}`)

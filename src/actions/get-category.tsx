@@ -5,10 +5,10 @@ import { Category } from '@/types'
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL as string}/categories`
 
-const getCategories = async (): Promise<Category[]> => {
-	const response: AxiosResponse<Category[]> = await axios.get(URL)
+const getCategory = async (id: string): Promise<Category> => {
+	const response: AxiosResponse<Category> = await axios.get(`${URL}/${id}`)
 
 	return response.data
 }
 
-export default getCategories
+export default getCategory

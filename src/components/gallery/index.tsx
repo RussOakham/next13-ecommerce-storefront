@@ -3,7 +3,7 @@
 import { Tab } from '@headlessui/react'
 import Image from 'next/image'
 
-import { Image as ImageType } from '../../../types'
+import { Image as ImageType } from '@/types'
 
 import GalleryTab from './gallery-tab'
 

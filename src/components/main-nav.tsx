@@ -3,7 +3,8 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { Category } from '../../types'
+import { Category } from '@/types'
+
 import { cn } from '../lib/utils'
 
 interface MainNavProps {
