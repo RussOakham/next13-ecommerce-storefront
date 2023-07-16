@@ -1,6 +1,6 @@
 'use client'
 
-import useIsMounted from '@/hooks/useIsMounted'
+import useIsMounted from '@/hooks/use-is-mounted'
 import { formatGbp } from '@/lib/utils'
 
 interface CurrencyProps {

@@ -2,7 +2,7 @@
 
 import { ShoppingBag } from 'lucide-react'
 
-import useIsMounted from '@/hooks/useIsMounted'
+import useIsMounted from '@/hooks/use-is-mounted'
 
 import Button from './ui/button'
 

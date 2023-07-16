@@ -44,13 +44,13 @@ const CategoryPage = async ({ params, searchParams }: CategoryPageProps) => {
 							<Filter valueKey="sizeId" name="Sizes" data={sizes} />
 							<Filter valueKey="colorId" name="Colors" data={colors} />
 						</div>
-					</div>
-					<div className="mt-6 lg:col-span-4 lg:mt-0">
-						{products.length === 0 && <NoResults />}
-						<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-							{products.map((product) => (
-								<ProductCard key={product.id} product={product} />
-							))}
+						<div className="mt-6 lg:col-span-4 lg:mt-0">
+							{products.length === 0 && <NoResults />}
+							<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+								{products.map((product) => (
+									<ProductCard key={product.id} product={product} />
+								))}
+							</div>
 						</div>
 					</div>
 				</div>
