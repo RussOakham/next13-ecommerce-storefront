@@ -11,7 +11,7 @@ interface MainNavProps {
 	data: Category[]
 }
 
-export const revalidate = 60 * 15 // 15 minutes
+export const revalidate = 0
 
 const MainNav = ({ data }: MainNavProps) => {
 	const pathname = usePathname()

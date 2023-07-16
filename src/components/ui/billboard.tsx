@@ -4,7 +4,7 @@ interface BillboardProps {
 	data: BillboardType
 }
 
-export const revalidate = 60 * 15 // 15 minutes
+export const revalidate = 0
 
 const Billboard = ({ data }: BillboardProps) => {
 	return (
