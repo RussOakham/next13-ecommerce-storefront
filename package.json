@@ -9,7 +9,8 @@
     "lint": "next lint && pnpm prettier",
     "prepare": "husky install",
     "prettier": "npx prettier src --check",
-    "prettier-fix": "npx prettier src --write"
+    "prettier-fix": "npx prettier src --write",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
