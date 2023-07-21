@@ -2,12 +2,17 @@
 
 import { useEffect } from 'react'
 import { toast } from 'react-hot-toast'
+import { AxiosError, AxiosResponse } from 'axios'
 import { useSearchParams } from 'next/navigation'
 
 import Button from '@/components/ui/button'
 import Currency from '@/components/ui/currency'
 import useCart from '@/hooks/use-cart'
 import axios from '@/lib/axios'
+
+interface PostCheckoutResponse {
+	url: string
+}
 
 const Summary: React.FC = () => {
 	const searchParams = useSearchParams()
@@ -31,15 +36,22 @@ const Summary: React.FC = () => {
 	}, 0)
 
 	const onCheckout = async () => {
-		const response = await axios.post(
-			`${process.env.NEXT_PUBLIC_API_URL}/checkout`,
-			{
-				productIds: items.map((item) => item.id),
-			},
-		)
+		try {
+			const response: AxiosResponse<PostCheckoutResponse> = await axios.post(
+				`${process.env.NEXT_PUBLIC_API_URL}/checkout`,
+				{
+					productIds: items.map((item) => item.id),
+				},
+			)
 
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-		window.location = response.data.url as unknown as Location
+			window.location = response.data.url as unknown as Location
+		} catch (error) {
+			toast.error(
+				`Something went wrong: ${(error as AxiosError).message} Status: ${
+					(error as AxiosError).status
+				}`,
+			)
+		}
 	}
 
 	return (
