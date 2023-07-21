@@ -6,7 +6,7 @@ const Footer = () => {
 		<footer className="border-t bg-white">
 			<div className="mx-auto py-10 ">
 				<p className="text-center text-xs text-black">
-					&copy; {`${year} 2021 NextJS 13 Store`}
+					&copy; {`${year} NextJS 13 Store`}
 				</p>
 			</div>
 		</footer>
